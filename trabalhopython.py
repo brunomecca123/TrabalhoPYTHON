@@ -59,3 +59,4 @@ def cadastrar(lista):
         print("Opção Inválida!")
         menu(lista)
 
+.
