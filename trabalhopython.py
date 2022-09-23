@@ -59,4 +59,44 @@ def cadastrar(lista):
         print("Opção Inválida!")
         menu(lista)
 
-.
+def remover(lista):
+    id = input("Digite o código do aluno a ser removido: ")
+
+    contador = 0
+    while contador < len(lista):
+        if lista[contador]['id'] == id:
+            del lista[contador]
+            print('O aluno foi removido com sucesso!')
+        else:
+            print("Código Inválido!")
+
+        contador += 1
+
+    menu(lista)
+
+def listar(lista, verificacao=0):
+    print('### Listagem ###')
+
+    for dados in lista:
+        print(dados['id'] + ', ' + dados['nome'] + ', ' + str(dados['idade']) + ', ' + dados['rg'])
+
+    if verificacao == 1:
+        print('Programa finalizado')
+    else:
+        menu(lista)
+
+def fechar(lista):
+    listar(lista, 1)
+
+def save(lista, id, nome, idade, rg):
+    lista.append({
+        'id'    : id,
+        'nome'  : nome,
+        'idade' : idade,
+        'rg'    : rg
+    })
+
+if _name_ == '_main_':
+    lista = []
+    menu(lista)
+
