@@ -23,20 +23,6 @@ def menu(lista):
         print('Operação inválida')
         menu(lista)
 
-
-def atualizar(lista):
-    chave = input('Digite o código do aluno: ')
-
-    for dados in lista:
-        if dados['id'] == chave:
-            dados['nome']      = input('Nome: ')
-            dados['idade']     = int(input('Idade: '))
-            dados['rg']        = input('RG: ')
-
-    print('Dados do aluno atualizados com sucesso!')
-
-    menu(lista)
-
 def cadastrar(lista):
     print('### Operação Cadastrar ###')
 
@@ -59,6 +45,21 @@ def cadastrar(lista):
         print("Opção Inválida!")
         menu(lista)
 
+
+def atualizar(lista):
+    chave = input('Digite o código do aluno: ')
+
+    for dados in lista:
+        if dados['id'] == chave:
+            dados['nome']      = input('Nome: ')
+            dados['idade']     = int(input('Idade: '))
+            dados['rg']        = input('RG: ')
+
+    print('Dados do aluno atualizados com sucesso!')
+
+    menu(lista)
+
+
 def remover(lista):
     id = input("Digite o código do aluno a ser removido: ")
 
@@ -67,8 +68,7 @@ def remover(lista):
         if lista[contador]['id'] == id:
             del lista[contador]
             print('O aluno foi removido com sucesso!')
-        else:
-            print("Código Inválido!")
+        
 
         contador += 1
 
@@ -96,7 +96,6 @@ def save(lista, id, nome, idade, rg):
         'rg'    : rg
     })
 
-if __name__ == '__main__':
+if __name__== '__main__':
     lista = []
     menu(lista)
-
